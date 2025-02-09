@@ -1,0 +1,15 @@
+{
+    "ServiceName": "fastapi-app",
+    "SourceConfiguration": {
+      "RepositoryUrl": "https://github.com/lofieth/fastapi-aws-app-runner-template",
+      "SourceType": "GITHUB",
+      "Branch": "main",
+      "EnableAutoDeployments": true
+    },
+    "InstanceConfiguration": {
+      "Cpu": "1024",
+      "Memory": "2048",
+      "Port": "8000"
+    }
+  }
+  

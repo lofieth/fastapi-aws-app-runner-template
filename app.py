@@ -2,7 +2,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from API.hello_world import hello_world
 from function.body import Body
 from fastapi import FastAPI
-
+import uvicorn
 
 app = FastAPI(
     docs_url="/docs",
@@ -34,3 +34,15 @@ async def hello_world_endpoint(
     text: str = Body(),
 ):
     return await hello_world(text)
+
+
+if __name__ == "__main__":
+    print("Starting webserver...")
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.getenv("PORT", 8080)),
+        debug=os.getenv("DEBUG", False),
+        log_level=os.getenv('LOG_LEVEL', "info"),
+        proxy_headers=True
+    )
